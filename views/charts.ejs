@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet">
+        <title>BikeShop - Charts</title>
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+
+            <!-- HEADER -->
+            <div class="row">
+  
+                <nav class=" header col-12 navbar navbar-light bg-dark">
+                        <a class="navbar" href="/">
+                        <img src="/images/bike-logo.svg" width="50" height="50" class="logo" alt="">
+                        The Bike Shop Experience
+                        </a>
+                </nav>
+  
+            </div>  
+            <div class="row ariane">
+                <nav aria-label="breadcrumb" class="col-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">SignIn/SignUp</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="row">
+              <div class="card col-12 col-md-4 mb-3 chart">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Nombre d'inscrits par mois
+                </div>
+                <div class="card-body">
+                  <canvas data-chartviz="<%=JSON.stringify(nbUserByMonth)%>"  id="linechart1" width="100" height="100"></canvas>
+                </div>
+              
+              </div>
+
+              <div class="card col-12 col-md-4 mb-3 chart">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Nombre de commandes validées par mois
+                </div>
+                <div class="card-body">
+                  <canvas data-chartviz="<%=JSON.stringify(nbCmdByMonth)%>"  id="linechart2" width="100" height="100"></canvas>
+                </div>
+              </div>
+
+              <div class="card col-12 col-md-4 mb-3 chart">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Top 10 des produits les plus vendus
+                </div>
+                <div class="card-body">
+                  <%for(var i = 0; i< topProducts.length; i++){%>
+                    <p><%=topProducts[i]._id%> - <%=topProducts[i].nbventes%></p>
+                  <%}%>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            
+            
+                
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a41e9403cf.js" crossorigin="anonymous"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+        <script src="javascripts/dataviz.js"></script>
+    </body>
+</html>
